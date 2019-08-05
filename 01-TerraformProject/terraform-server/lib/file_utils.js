@@ -11,13 +11,11 @@ function backUpandCreateDirectory(infrarequest, dirName) {
     try {
         
         if (!fs.existsSync(targetFolder)) {
-            console.log(' ****CREATING DIRECTORY ****');
             fs.mkdirSync(targetFolder);
         }
         targetFolder = path.join(dirName, path.join(infrarequest.appCI, infrarequest.environment));
         //check if folder needs to be created or integrated
         if (!fs.existsSync(targetFolder)) {
-            console.log(' ****CREATING DIRECTORY ****');
             fs.mkdirSync(targetFolder);
         }
     }
@@ -29,6 +27,7 @@ function backUpandCreateDirectory(infrarequest, dirName) {
 }
 
 function copyAllEligibleFiles(infrarequest, srcDir, destDir) {
+    //console.log('copyAllEligibleFiles, infrarequest :: ', infrarequest);
     let success = true;
     let tfvars_params = {};
     try {
@@ -83,7 +82,6 @@ function createTfvarsFromJson(inpJson, dirName, fileName){
 
 
 function copyFile(srcDir, destDir, filename) {
-    console.log('Copying file, ', filename);
     let success = true;
     if (!filename || filename.length < 1) {
         // not to be done, anyting.

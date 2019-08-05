@@ -13,7 +13,7 @@ const tfvarsmap = {
     aws : {
         name : 'Amazon Webservices',
         environment: {varskey : 'current_environment', files : []},
-        region : {varskey : 'region_name', files : ['connections.tf']},
+        cloud_region : {varskey : 'region_name', files : ['connections.tf']},
         vpc : {varskey : 'vpc_name', files : ['network.tf', 'gateway.tf']},
         subnet : {varskey : 'subnet_name', files : ['subnets.tf']},
         cidr_ips : {varskey : 'cidr_block', files : []},
@@ -24,8 +24,7 @@ const tfvarsmap = {
         amiKeyPair: {varskey : 'ami_key_pair_name', files: []},
         applnPortRangeFrom : {varskey : 'appln_port_range_from', files: ['security.tf']},
         applnPortRangeTo : {varskey : 'appln_port_range_to', files: ['security.tf']},
-        nodeJsSwCommand : {varskey : 'ubuntu_nodejs_install', 'files' : []},
-        jdkSwCommand : {varskey : 'ubuntu_jdk_install', 'files' : []},
+        swCommandsToRun : {varskey : 'sw_install_commands', 'files' : []}
     },
     azure : {
         name : 'Microsoft Azure Cloud',
@@ -34,11 +33,40 @@ const tfvarsmap = {
     }
 }
 
+
+const tf_ec2_stack_names =  {
+    ubuntu_ec2_micro : {
+        description : 'Ubuntu t2.micro instance. 2gb RAM',
+        server : 't2.micro',
+        serverAMI : 'i-393847474',
+        amiKeyPair : 'vk-ec2-pair'
+    },
+    ubuntu_ec2_max : {
+        description : 'Ubuntu t3.micro instance. 4gb RAM',
+        server : 't3.micro',
+        serverAMI : 'i-393847474',
+        amiKeyPair : 'vk-ec2-pair'
+    },
+    rhel_ec2_micro : {
+        description : 'Ubuntu t3.micro instance. 4gb RAM',
+        server : 't3.micro',
+        serverAMI : 'i-393847474',
+        amiKeyPair : 'vk-ec2-pair'
+    },
+    rhel_ec2_max : {
+        description : 'Ubuntu t3.micro instance. 4gb RAM',
+        server : 't3.micro',
+        serverAMI : 'i-393847474',
+        amiKeyPair : 'vk-ec2-pair'
+    }
+};
+
 const tf_source_folder = 'C:\\Users\\S417466\\Venkat\\_Trainings\\00-online-git-codebases\\01-Personal\\technicalexamples\\02-Projects\\01-TerraformProj\\terraform-files\\source';
 const tf_target_folder = 'C:\\Users\\S417466\\Venkat\\_Trainings\\00-online-git-codebases\\01-Personal\\technicalexamples\\02-Projects\\01-TerraformProj\\terraform-files\\projects';
 
 module.exports = {
     tf_source_folder,
     tf_target_folder,
-    tfvarsmap
+    tfvarsmap,
+    tf_ec2_stack_names
 }

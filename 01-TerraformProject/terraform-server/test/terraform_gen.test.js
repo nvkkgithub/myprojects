@@ -56,8 +56,8 @@ test('Test - generate_variables - Install NodeJS', () => {
         jdkSwCommand : 'sleep 1'
     };
 
-    let dirName = terraformgen.generateTfFiles(test_Env);
-    console.log(`TEST dirName = ${dirName}`);
+    //let dirName = terraformgen.generateTfFiles(test_Env);
+    //console.log(`TEST dirName = ${dirName}`);
 });
 
 test('Test - validateAndApplyTerraform', () => {

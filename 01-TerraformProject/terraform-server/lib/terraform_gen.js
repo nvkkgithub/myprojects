@@ -4,7 +4,7 @@ var _ = require('underscore');
 var tfvars_map = require('./config/terraform_vars_map');
 var futil = require('./file_utils');
 const path = require('path');
-const { cmd_fmt, cmd_init, cmd_validate, cmd_apply, cmd_destroy} = require('./constants/commands');
+const { cmd_init, cmd_validate, cmd_fmt, cmd_plan, cmd_apply, cmd_destroy} = require('./constants/commands');
 
 /**
  * Create folder in target with name 'infrarequest.appCI'.
